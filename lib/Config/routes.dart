@@ -4,6 +4,9 @@ class Routes {
   static String homescreen = "/homescreen";
   static String depositScreen = "/homescreen/depositScreen";
 
+  static String transactionHistoryScreen =
+      "/homescreen/transactionHistoryScreen";
+
   static String addMoneyScreen = "/homescreen/addMoneyScreen";
 
   static String confirmationScreen =

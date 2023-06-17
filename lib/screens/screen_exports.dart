@@ -7,3 +7,5 @@ export 'deposit_screen/deposit_screen.dart';
 export 'add_money_screen/add_money_screen.dart';
 
 export 'scan_qr_screen/confirmation_screen.dart';
+
+export 'transaction_history_screen/transaction_history_screen.dart';

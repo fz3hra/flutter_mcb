@@ -26,6 +26,8 @@ class MyApp extends StatelessWidget {
         Routes.depositScreen: (context) => const DepositScreen(),
         Routes.confirmationScreen: (context) => const ConfirmationScreen(),
         Routes.addMoneyScreen: (context) => const AddMoneyScreen(),
+        Routes.transactionHistoryScreen: (context) =>
+            const TransactionHistoryScreen(),
       },
     );
   }

@@ -1,10 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_mcb_app/widgets/widget_exports.dart';
 import 'package:gap/gap.dart';
 
 class TransactionWidget extends StatelessWidget {
-  String transactionName, amount, date;
+  String transactionName,
+      amount,
+      date,
+      referenceId,
+      personName,
+      transactionType;
   TransactionWidget({
     super.key,
+    required this.referenceId,
+    required this.personName,
+    required this.transactionType,
     required this.transactionName,
     required this.amount,
     required this.date,
@@ -14,31 +23,23 @@ class TransactionWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: const EdgeInsets.only(bottom: 16.0),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      child: Column(
         children: [
-          Text(
-            transactionName,
-            style: const TextStyle(
-              color: Colors.black,
-              fontSize: 16,
-              fontWeight: FontWeight.w500,
-            ),
+          TransactionDetailsWidget(
+            amount: amount,
+            date: date,
+            personName: personName,
+            referenceId: referenceId,
+            transactionName: transactionName,
+            transactionType: transactionType,
           ),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.end,
-            children: [
-              Text(
-                "Rs " + amount,
-                style: const TextStyle(
-                  color: Colors.black,
-                  fontSize: 14,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              const Gap(4),
-              const Text("6 months ago"),
-            ],
+          Gap(16),
+          Container(
+            width: MediaQuery.of(context).size.width,
+            height: 1,
+            decoration: BoxDecoration(
+              color: Color(0xFFD3D2E4),
+            ),
           ),
         ],
       ),

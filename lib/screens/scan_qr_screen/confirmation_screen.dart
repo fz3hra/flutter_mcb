@@ -78,19 +78,39 @@ class ConfirmationScreen extends StatelessWidget {
               ),
             ),
             const Gap(16),
-            ElevatedButton(
-              onPressed: () => Navigator.pushNamed(
-                context,
-                Routes.confirmationScreen,
-              ),
-              style: ElevatedButton.styleFrom(
-                padding: const EdgeInsets.all(12),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(20),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                ElevatedButton(
+                  onPressed: () => Navigator.pop(context),
+                  style: ElevatedButton.styleFrom(
+                    padding: const EdgeInsets.all(12),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    backgroundColor: Color(0xFFF4F4F5),
+                  ),
+                  child: Text(
+                    "Cancel",
+                    style: TextStyle(
+                      color: Colors.black,
+                    ),
+                  ),
                 ),
-                backgroundColor: Color(0xFF938EFF),
-              ),
-              child: Text("Confirm"),
+                Gap(16),
+                ElevatedButton(
+                  onPressed: () =>
+                      Navigator.of(context).popUntil((route) => route.isFirst),
+                  style: ElevatedButton.styleFrom(
+                    padding: const EdgeInsets.all(10),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    backgroundColor: Color(0xFF938EFF),
+                  ),
+                  child: Text("Confirm"),
+                ),
+              ],
             )
           ],
         ),

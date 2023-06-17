@@ -101,13 +101,32 @@ class HomeScreen extends StatelessWidget {
               ),
               // plan history
               const Gap(24),
-              const Text(
-                "Transaction History",
-                style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 24,
-                  fontWeight: FontWeight.bold,
-                ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  const Text(
+                    "Transaction History",
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 24,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  GestureDetector(
+                    onTap: () => Navigator.pushNamed(
+                      context,
+                      Routes.transactionHistoryScreen,
+                    ),
+                    child: const Text(
+                      "See All",
+                      style: TextStyle(
+                        color: Colors.blue,
+                        fontSize: 14,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                ],
               ),
               const Gap(8),
               ListView.builder(
@@ -118,6 +137,9 @@ class HomeScreen extends StatelessWidget {
                   var transactions =
                       TransactionModel.transactionModelLists[index];
                   return TransactionWidget(
+                    referenceId: transactions.referenceId,
+                    personName: transactions.personName,
+                    transactionType: transactions.transactionType,
                     transactionName: transactions.transactionName,
                     amount: transactions.amount,
                     date: transactions.date,
