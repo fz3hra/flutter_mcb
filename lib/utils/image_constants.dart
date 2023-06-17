@@ -5,4 +5,6 @@ class ImageConstants {
   static String level4image = "assets/level-4.png";
   static String confirmationImage = "assets/confirmation.svg";
   static String informationImage = "assets/information.png";
+  static String chequeImage = "assets/cheque.png";
+  static String logo = "assets/logo.png";
 }

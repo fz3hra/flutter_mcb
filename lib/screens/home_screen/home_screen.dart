@@ -1,3 +1,4 @@
+import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mcb_app/Config/routes.dart';
 import 'package:flutter_mcb_app/models/account_model.dart';
@@ -22,6 +23,21 @@ class HomeScreen extends StatelessWidget {
             color: Colors.black,
           ),
         ),
+        actions: [
+          GestureDetector(
+            onTap: () => Navigator.pushNamed(
+              context,
+              Routes.notificationScreen,
+            ),
+            child: const Padding(
+              padding: EdgeInsets.only(right: 16.0),
+              child: Icon(
+                EvaIcons.bellOutline,
+                color: Colors.black,
+              ),
+            ),
+          )
+        ],
       ),
       body: SingleChildScrollView(
         child: Container(

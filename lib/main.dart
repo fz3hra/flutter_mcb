@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      initialRoute: Routes.tabnavigation,
+      initialRoute: Routes.loginScreen,
       routes: {
         Routes.tabnavigation: (context) => const TabNavigation(),
         Routes.homescreen: (context) => const HomeScreen(),
@@ -28,6 +28,9 @@ class MyApp extends StatelessWidget {
         Routes.addMoneyScreen: (context) => const AddMoneyScreen(),
         Routes.transactionHistoryScreen: (context) =>
             const TransactionHistoryScreen(),
+        Routes.notificationScreen: (context) => const NotificationScreen(),
+        Routes.loginScreen: (context) => const LoginScreen(),
+        Routes.registrationScreen: (context) => const RegistrationScreen(),
       },
     );
   }
