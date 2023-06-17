@@ -8,3 +8,5 @@ export 'home_widgets/transaction_details.dart';
 export 'notification_widgets/notification_widget.dart';
 
 export 'auth_widgets/auth_textfield_widget.dart';
+
+export 'kyc_widgets/document_widget.dart';

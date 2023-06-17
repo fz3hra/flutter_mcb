@@ -14,3 +14,7 @@ export 'notification_screen/notification_screen.dart';
 
 export 'auth_screen/login_screen.dart';
 export 'auth_screen/registration_screen.dart';
+
+export 'kycs_screen/kyc_1_screen.dart';
+
+export 'kycs_screen/user_information.dart';

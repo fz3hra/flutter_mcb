@@ -31,6 +31,9 @@ class MyApp extends StatelessWidget {
         Routes.notificationScreen: (context) => const NotificationScreen(),
         Routes.loginScreen: (context) => const LoginScreen(),
         Routes.registrationScreen: (context) => const RegistrationScreen(),
+        Routes.kyc1Screen: (context) => const Kyc1Screen(),
+        Routes.userInformationScreen: (context) =>
+            const UserInformationScreen(),
       },
     );
   }

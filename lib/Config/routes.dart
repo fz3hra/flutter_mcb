@@ -19,4 +19,8 @@ class Routes {
 
   static String loginScreen = "/loginScreen";
   static String registrationScreen = "/registrationScreen";
+
+  static String kyc1Screen = "/registrationScreen/kyc1Screen";
+  static String userInformationScreen =
+      "/registrationScreen/kyc1Screen/userInformationScreen";
 }

@@ -68,8 +68,12 @@ class RegistrationScreen extends StatelessWidget {
             Container(
               width: MediaQuery.of(context).size.width,
               child: ElevatedButton(
-                onPressed: () =>
-                    Navigator.of(context).popUntil((route) => route.isFirst),
+                // onPressed: () =>
+                //     Navigator.of(context).popUntil((route) => route.isFirst),
+                onPressed: () => Navigator.pushNamed(
+                  context,
+                  Routes.kyc1Screen,
+                ),
                 style: ElevatedButton.styleFrom(
                   padding: const EdgeInsets.all(10),
                   shape: RoundedRectangleBorder(
