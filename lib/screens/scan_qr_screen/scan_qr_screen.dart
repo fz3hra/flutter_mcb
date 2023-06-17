@@ -1,6 +1,7 @@
 import 'dart:io';
-
+import 'package:encrypt/encrypt.dart' as encrypt;
 import 'package:flutter/material.dart';
+import 'package:flutter_mcb_app/Config/routes.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
 
 class ScanQrScreen extends StatefulWidget {
@@ -44,23 +45,84 @@ class _ScanQrScreenState extends State<ScanQrScreen> {
 
   @override
   Widget build(BuildContext context) {
+    var decrypted = "decrypt";
+    final key = encrypt.Key.fromUtf8('bf3c199c2470cb477d907b1e0917c17b');
+    final iv = encrypt.IV.fromUtf8(
+      '5183666c72eec9e4',
+    );
+    final encryptedText =
+        'Main9lQcM/imQuyPF5cqCV7tvJp02BBW1xX1ECJxHLGhDnyqrYKOL84+I3FxOBAD';
     if (result != null) {
       print("result ${result!.code}");
       // Main9lQcM/imQuyPF5cqCV7tvJp02BBW1xX1ECJxHLGhDnyqrYKOL84+I3FxOBAD
     }
     return Scaffold(
-      body: Container(
-        child: QRView(
-          key: qrKey,
-          onQRViewCreated: _onQRViewCreated,
-          overlay: QrScannerOverlayShape(
-            borderColor: Colors.orange,
-            borderRadius: 10,
-            borderLength: 30,
-            borderWidth: 10,
-            cutOutSize: 250,
+      body: Stack(
+        children: [
+          QRView(
+            key: qrKey,
+            onQRViewCreated: _onQRViewCreated,
+            overlay: QrScannerOverlayShape(
+              borderColor: Colors.orange,
+              borderRadius: 10,
+              borderLength: 30,
+              borderWidth: 10,
+              cutOutSize: 250,
+            ),
           ),
-        ),
+          //
+          Positioned(
+            left: 0,
+            right: 0,
+            bottom: 16,
+            child: Padding(
+              padding: const EdgeInsets.symmetric(
+                horizontal: 16.0,
+              ),
+              child: ElevatedButton(
+                onPressed: () {
+                  final encrypter = encrypt.Encrypter(
+                    encrypt.AES(key, mode: encrypt.AESMode.cbc),
+                  );
+
+                  final decrypted = encrypter.decrypt64(encryptedText, iv: iv);
+
+                  print("decrypted $decrypted");
+                  Navigator.pushNamed(
+                    context,
+                    Routes.confirmationScreen,
+                  );
+                },
+                // () {
+                //   // ! do this after click on popup button to proceed
+                // final key =
+                //     encrypt.Key.fromUtf8('bf3c199c2470cb477d907b1e0917c17b');
+                // final iv = encrypt.IV.fromUtf8(
+                //   '5183666c72eec9e4',
+                // );
+                // final encryptedText =
+                //     'Main9lQcM/imQuyPF5cqCV7tvJp02BBW1xX1ECJxHLGhDnyqrYKOL84+I3FxOBAD';
+
+                // final encrypter = encrypt.Encrypter(
+                //   encrypt.AES(key, mode: encrypt.AESMode.cbc),
+                // );
+
+                // final decrypted = encrypter.decrypt64(encryptedText, iv: iv);
+
+                // print("decrypted $decrypted");
+                // },
+                style: ElevatedButton.styleFrom(
+                  padding: const EdgeInsets.all(12),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  backgroundColor: Color(0xFF938EFF),
+                ),
+                child: Text("Scan Cheque"),
+              ),
+            ),
+          )
+        ],
       ),
     );
   }

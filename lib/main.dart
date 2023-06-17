@@ -24,6 +24,7 @@ class MyApp extends StatelessWidget {
         Routes.homescreen: (context) => const HomeScreen(),
         Routes.qrScannerScreen: (context) => const ScanQrScreen(),
         Routes.depositScreen: (context) => const DepositScreen(),
+        Routes.confirmationScreen: (context) => const ConfirmationScreen(),
       },
     );
   }

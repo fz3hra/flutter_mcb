@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_mcb_app/Config/routes.dart';
+import 'package:flutter_mcb_app/models/account_model.dart';
 import 'package:flutter_mcb_app/models/transaction_model.dart';
 import 'package:flutter_mcb_app/utils/image_constants.dart';
 import 'package:flutter_mcb_app/widgets/widget_exports.dart';
@@ -29,40 +31,20 @@ class HomeScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // Amount in my wallet
-              const Text(
-                "Rs 200",
-                style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 24,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              Gap(8),
               SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
                 child: Row(
-                  children: [
-                    SelectionWidget(
-                      icon: Icons.add,
-                      name: "Add money",
-                    ),
-                    Gap(8),
-                    SelectionWidget(
-                      icon: Icons.add,
-                      name: "Deposit Cheque",
-                    ),
-                    Gap(8),
-                    SelectionWidget(
-                      icon: Icons.add,
-                      name: "Withdraw money",
-                    ),
-                  ],
+                  children: AccountModel.accountLists.map(
+                    (accounts) {
+                      return AccountWidget(
+                        accounts: accounts,
+                      );
+                    },
+                  ).toList(),
                 ),
               ),
               // service
               const Gap(24),
-
               const Text(
                 "Services",
                 style: TextStyle(
