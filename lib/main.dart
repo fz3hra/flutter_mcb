@@ -34,6 +34,9 @@ class MyApp extends StatelessWidget {
         Routes.kyc1Screen: (context) => const Kyc1Screen(),
         Routes.userInformationScreen: (context) =>
             const UserInformationScreen(),
+        Routes.serviceguideScreen: (context) => const ServiceGuideScreen(),
+        Routes.userServiceInformationScreen: (context) =>
+            const UserServiceInformation(),
       },
     );
   }

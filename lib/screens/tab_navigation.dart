@@ -24,7 +24,7 @@ class _TabNavigationState extends State<TabNavigation> {
         type: BottomNavigationBarType.fixed,
         showSelectedLabels: false,
         showUnselectedLabels: false,
-        selectedItemColor: Colors.red,
+        selectedItemColor: Color(0xFF938EFF),
         unselectedItemColor: Colors.grey,
         onTap: (navIndex) {
           setState(

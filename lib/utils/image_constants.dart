@@ -9,4 +9,6 @@ class ImageConstants {
   static String logo = "assets/logo.png";
 
   static String verifyImage = "assets/verify.png";
+
+  static String savingsImage = "assets/savings.png";
 }

@@ -7,6 +7,11 @@ class Routes {
 
   static String depositScreen = "/homescreen/depositScreen";
 
+  static String serviceguideScreen = "/homescreen/serviceguideScreen";
+
+  static String userServiceInformationScreen =
+      "/homescreen/serviceguideScreen/userServiceInformationScreen";
+
   static String transactionHistoryScreen =
       "/homescreen/transactionHistoryScreen";
 

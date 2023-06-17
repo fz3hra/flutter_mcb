@@ -74,9 +74,15 @@ class HomeScreen extends StatelessWidget {
                 scrollDirection: Axis.horizontal,
                 child: Row(
                   children: [
-                    ServiceWidget(
-                      icon: Icons.shop,
-                      serviceName: 'Service Name',
+                    GestureDetector(
+                      onTap: () => Navigator.pushNamed(
+                        context,
+                        Routes.serviceguideScreen,
+                      ),
+                      child: ServiceWidget(
+                        icon: Icons.shop,
+                        serviceName: 'Service Name',
+                      ),
                     ),
                     Gap(16),
                     ServiceWidget(
