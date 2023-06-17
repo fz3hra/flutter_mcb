@@ -19,18 +19,21 @@ class AccountModel {
           // image:
           icon:
               'https://cdn.pixabay.com/photo/2014/02/01/18/00/money-256314_1280.jpg',
+          accountTypeId: 1,
         ),
         AccountTypeModel(
-          accountType: 'Pay',
+          accountType: 'Deposit Cheque',
           // image:
           icon:
               'https://cdn.pixabay.com/photo/2014/02/01/18/00/money-256314_1280.jpg',
+          accountTypeId: 2,
         ),
         AccountTypeModel(
-          accountType: 'Pay',
+          accountType: 'Withdraw Money',
           // image:
           icon:
               'https://cdn.pixabay.com/photo/2014/02/01/18/00/money-256314_1280.jpg',
+          accountTypeId: 3,
         ),
       ],
     ),
@@ -44,12 +47,14 @@ class AccountModel {
           // image:
           icon:
               'https://cdn.pixabay.com/photo/2014/02/01/18/00/money-256314_1280.jpg',
+          accountTypeId: 4,
         ),
         AccountTypeModel(
           accountType: 'Pay',
           // image:
           icon:
               'https://cdn.pixabay.com/photo/2014/02/01/18/00/money-256314_1280.jpg',
+          accountTypeId: 5,
         ),
       ],
     ),
@@ -63,12 +68,14 @@ class AccountModel {
           // image:
           icon:
               'https://cdn.pixabay.com/photo/2014/02/01/18/00/money-256314_1280.jpg',
+          accountTypeId: 6,
         ),
         AccountTypeModel(
           accountType: 'Pay',
           // image:
           icon:
               'https://cdn.pixabay.com/photo/2014/02/01/18/00/money-256314_1280.jpg',
+          accountTypeId: 7,
         ),
       ],
     ),
@@ -76,10 +83,12 @@ class AccountModel {
 }
 
 class AccountTypeModel {
+  int accountTypeId;
   String accountType;
   String icon;
 
   AccountTypeModel({
+    required this.accountTypeId,
     required this.accountType,
     required this.icon,
   });

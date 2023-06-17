@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_mcb_app/Config/routes.dart';
 import 'package:flutter_mcb_app/models/account_model.dart';
 import 'package:flutter_mcb_app/widgets/widget_exports.dart';
 import 'package:gap/gap.dart';
@@ -19,9 +20,9 @@ class AccountWidget extends StatelessWidget {
       padding: const EdgeInsets.all(16),
       height: 160,
       decoration: BoxDecoration(
-        color: Color(0xFFD3D2E4),
+        color: const Color(0xFFD3D2E4),
         borderRadius: BorderRadius.circular(10),
-        boxShadow: [
+        boxShadow: const [
           BoxShadow(
             color: Colors.grey,
             blurRadius: 2.0,
@@ -36,12 +37,12 @@ class AccountWidget extends StatelessWidget {
             children: [
               Text(
                 accounts.accountName,
-                style: TextStyle(
+                style: const TextStyle(
                   color: Colors.black,
                   fontSize: 14,
                 ),
               ),
-              Gap(8),
+              const Gap(8),
               Text(
                 "Rs ${accounts.accountBalance}",
                 style: TextStyle(
@@ -55,14 +56,31 @@ class AccountWidget extends StatelessWidget {
           SingleChildScrollView(
             scrollDirection: Axis.horizontal,
             child: Row(
-              children: accounts.accountType
-                  .map(
-                    (accountTypes) => SelectionWidget(
+              children: accounts.accountType.map(
+                (accountTypes) {
+                  return GestureDetector(
+                    onTap: () {
+                      if (accountTypes.accountTypeId == 1) {
+                        // navigate to route add money
+                        Navigator.pushNamed(
+                          context,
+                          Routes.addMoneyScreen,
+                        );
+                      } else if (accountTypes.accountTypeId == 2) {
+                        // navigate to route deposit cheque
+                        Navigator.pushNamed(
+                          context,
+                          Routes.depositScreen,
+                        );
+                      }
+                    },
+                    child: SelectionWidget(
                       icon: Icons.add,
-                      name: "Add money",
+                      name: accountTypes.accountType,
                     ),
-                  )
-                  .toList(),
+                  );
+                },
+              ).toList(),
             ),
           ),
         ],
