@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mcb_app/Config/routes.dart';
 import 'package:flutter_mcb_app/screens/screen_exports.dart';
+import 'package:flutter_mcb_app/screens/tab_navigation.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,10 +18,12 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      initialRoute: Routes.homescreen,
+      initialRoute: Routes.tabnavigation,
       routes: {
+        Routes.tabnavigation: (context) => const TabNavigation(),
         Routes.homescreen: (context) => const HomeScreen(),
         Routes.qrScannerScreen: (context) => const ScanQrScreen(),
+        Routes.depositScreen: (context) => const DepositScreen(),
       },
     );
   }

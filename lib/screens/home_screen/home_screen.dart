@@ -1,6 +1,8 @@
-import 'package:encrypt/encrypt.dart' as encrypt;
 import 'package:flutter/material.dart';
-import 'package:flutter_mcb_app/Config/routes.dart';
+import 'package:flutter_mcb_app/models/transaction_model.dart';
+import 'package:flutter_mcb_app/utils/image_constants.dart';
+import 'package:flutter_mcb_app/widgets/widget_exports.dart';
+import 'package:gap/gap.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -8,35 +10,137 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
+      appBar: AppBar(
+        elevation: 0,
+        centerTitle: false,
+        backgroundColor: Colors.transparent,
+        title: const Text(
+          "My Dashboard",
+          style: TextStyle(
+            color: Colors.black,
+          ),
+        ),
+      ),
+      body: SingleChildScrollView(
         child: Container(
+          margin: const EdgeInsets.symmetric(
+            horizontal: 16.0,
+          ),
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              ElevatedButton(
-                onPressed: () =>
-                    Navigator.pushNamed(context, Routes.qrScannerScreen),
-                child: Text("Scan Qr Code"),
+              // Amount in my wallet
+              const Text(
+                "Rs 200",
+                style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
-              ElevatedButton(
-                onPressed: () {
-                  final key =
-                      encrypt.Key.fromUtf8('bf3c199c2470cb477d907b1e0917c17b');
-                  final iv = encrypt.IV.fromUtf8(
-                    '5183666c72eec9e4',
+              Gap(8),
+              SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  children: [
+                    SelectionWidget(
+                      icon: Icons.add,
+                      name: "Add money",
+                    ),
+                    Gap(8),
+                    SelectionWidget(
+                      icon: Icons.add,
+                      name: "Deposit Cheque",
+                    ),
+                    Gap(8),
+                    SelectionWidget(
+                      icon: Icons.add,
+                      name: "Withdraw money",
+                    ),
+                  ],
+                ),
+              ),
+              // service
+              const Gap(24),
+
+              const Text(
+                "Services",
+                style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              const Gap(8),
+              SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  children: [
+                    ServiceWidget(
+                      icon: Icons.shop,
+                      serviceName: 'Service Name',
+                    ),
+                    Gap(16),
+                    ServiceWidget(
+                      icon: Icons.shop,
+                      serviceName: 'Service Name',
+                    ),
+                  ],
+                ),
+              ),
+              const Gap(24),
+              // plans
+              const Text(
+                "Plans",
+                style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              const Gap(8),
+              SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  children: [
+                    PlanWidget(
+                      planName: 'Plan 1',
+                      planImage: ImageConstants.level1image,
+                      interest: '20',
+                    ),
+                    Gap(8),
+                    PlanWidget(
+                      planName: 'Plan 2',
+                      planImage: ImageConstants.level2image,
+                      interest: '20',
+                    ),
+                  ],
+                ),
+              ),
+              // plan history
+              const Gap(24),
+              const Text(
+                "Transaction History",
+                style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              const Gap(8),
+              ListView.builder(
+                shrinkWrap: true,
+                physics: const NeverScrollableScrollPhysics(),
+                itemCount: TransactionModel.transactionModelLists.length,
+                itemBuilder: (BuildContext context, int index) {
+                  var transactions =
+                      TransactionModel.transactionModelLists[index];
+                  return TransactionWidget(
+                    transactionName: transactions.transactionName,
+                    amount: transactions.amount,
+                    date: transactions.date,
                   );
-                  final encryptedText =
-                      'Main9lQcM/imQuyPF5cqCV7tvJp02BBW1xX1ECJxHLGhDnyqrYKOL84+I3FxOBAD';
-
-                  final encrypter = encrypt.Encrypter(
-                    encrypt.AES(key, mode: encrypt.AESMode.cbc),
-                  );
-
-                  final decrypted = encrypter.decrypt64(encryptedText, iv: iv);
-
-                  print(decrypted); // ff484738-f542-4519-9ca8-ae77a32b1198|2000
                 },
-                child: Text("Decrypt code"),
               ),
             ],
           ),

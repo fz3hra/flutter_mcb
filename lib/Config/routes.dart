@@ -1,4 +1,7 @@
 class Routes {
-  static String homescreen = "/";
+  static String tabnavigation = "/";
+
+  static String homescreen = "/homescreen";
+  static String depositScreen = "/homescreen/depositScreen";
   static String qrScannerScreen = "/qrScannerScreen";
 }
