@@ -89,13 +89,28 @@ class HomeScreen extends StatelessWidget {
                       icon: Icons.shop,
                       serviceName: 'Travel',
                     ),
+                    Gap(16),
+                    ServiceWidget(
+                      icon: Icons.shop,
+                      serviceName: 'Business',
+                    ),
+                    Gap(16),
+                    ServiceWidget(
+                      icon: Icons.shop,
+                      serviceName: 'Education',
+                    ),
+                    Gap(16),
+                    ServiceWidget(
+                      icon: Icons.shop,
+                      serviceName: 'Emergies',
+                    ),
                   ],
                 ),
               ),
               const Gap(24),
               // plans
               const Text(
-                "Plans",
+                "My Plans",
                 style: TextStyle(
                   color: Colors.black,
                   fontSize: 24,

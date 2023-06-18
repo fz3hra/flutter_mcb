@@ -41,7 +41,7 @@ class ServiceGuideScreen extends StatelessWidget {
             ),
             Gap(16),
             Text(
-              "Save towards acquiring a better saving plan",
+              "Save for automation, buying a house, paying a rent, bills and others",
             ),
             Gap(16),
             Expanded(

@@ -12,7 +12,7 @@ class AccountModel {
     AccountModel(
       accountNumber: '1',
       accountName: 'Main Account',
-      accountBalance: '200',
+      accountBalance: '200,000',
       accountType: [
         AccountTypeModel(
           accountType: 'Add Money',
@@ -40,7 +40,7 @@ class AccountModel {
     AccountModel(
       accountNumber: '2',
       accountName: 'Savings Account',
-      accountBalance: '200',
+      accountBalance: '500,000',
       accountType: [
         AccountTypeModel(
           accountType: 'Pay',
@@ -61,7 +61,7 @@ class AccountModel {
     AccountModel(
       accountNumber: '3',
       accountName: 'Other Account',
-      accountBalance: '200',
+      accountBalance: '100,000',
       accountType: [
         AccountTypeModel(
           accountType: 'Pay',
