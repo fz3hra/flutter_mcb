@@ -64,7 +64,8 @@ class TransactionDetailsWidget extends StatelessWidget {
           ),
           Column(
             children: [
-              transactionName == "JuicePro Transfer"
+              (transactionName == "JuicePro Transfer" ||
+                      transactionName == "Cheque Deposit")
                   ? Text(
                       "+ Rs ${amount}",
                       style: TextStyle(

@@ -16,10 +16,18 @@ class TransactionModel {
 
   static List<TransactionModel> transactionModelLists = [
     TransactionModel(
+      transactionName: 'Cheque Deposit',
+      amount: '200,000',
+      date: '18th June 2023',
+      referenceId: '1',
+      personName: 'Mr John Doe',
+      transactionType: 'cheque',
+    ),
+    TransactionModel(
       transactionName: 'Juice Account Transfer',
       amount: '20.00',
       date: '6th June 2023',
-      referenceId: '1',
+      referenceId: '2',
       personName: 'Mr John Doe',
       transactionType: 'cheque',
     ),
@@ -27,7 +35,7 @@ class TransactionModel {
       transactionName: 'Juice Transfer',
       amount: '10.00',
       date: '01 jaunary 2021',
-      referenceId: '2',
+      referenceId: '3',
       personName: 'Mr McWell',
       transactionType: 'bank',
     ),
@@ -35,7 +43,7 @@ class TransactionModel {
       transactionName: 'JuicePro Transfer',
       amount: '10.00',
       date: '01 jaunary 2021',
-      referenceId: '3',
+      referenceId: '4',
       personName: 'Mr Chris Lambert',
       transactionType: 'atm',
     ),
