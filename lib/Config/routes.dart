@@ -3,11 +3,18 @@ class Routes {
 
   static String homescreen = "/homescreen";
 
+  static String planDetailedInformationScreen =
+      "/homescreen/planDetailedInformationScreen";
+
   static String notificationScreen = "/homescreen/notificationScreen";
 
   static String depositScreen = "/homescreen/depositScreen";
 
   static String serviceguideScreen = "/homescreen/serviceguideScreen";
+
+  static String planScreen = "/planScreen";
+  static String userInformationPlanScreen =
+      "/planScreen/userInformationPlanScreen";
 
   static String userServiceInformationScreen =
       "/homescreen/serviceguideScreen/userServiceInformationScreen";
@@ -26,6 +33,7 @@ class Routes {
   static String registrationScreen = "/registrationScreen";
 
   static String kyc1Screen = "/registrationScreen/kyc1Screen";
+
   static String userInformationScreen =
       "/registrationScreen/kyc1Screen/userInformationScreen";
 }

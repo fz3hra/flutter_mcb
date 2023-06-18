@@ -11,4 +11,7 @@ class ImageConstants {
   static String verifyImage = "assets/verify.png";
 
   static String savingsImage = "assets/savings.png";
+
+  static String levelImage = "assets/level.png";
+  static String profileImage = "assets/avatar.png";
 }

@@ -1,11 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mcb_app/Config/routes.dart';
+import 'package:flutter_mcb_app/repositories/get_user_repository.dart';
 import 'package:flutter_mcb_app/utils/image_constants.dart';
 import 'package:flutter_mcb_app/widgets/widget_exports.dart';
 import 'package:gap/gap.dart';
 
-class LoginScreen extends StatelessWidget {
+class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
+
+  @override
+  State<LoginScreen> createState() => _LoginScreenState();
+}
+
+class _LoginScreenState extends State<LoginScreen> {
+  TextEditingController emailController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -41,6 +50,7 @@ class LoginScreen extends StatelessWidget {
                   icon: const Icon(Icons.email),
                   obscureText: false,
                   title: 'Email Address',
+                  controller: emailController,
                 ),
                 const Gap(16),
                 AuthTextFieldWidget(
@@ -52,6 +62,7 @@ class LoginScreen extends StatelessWidget {
                   suffixIcon: const Icon(Icons.remove_red_eye_outlined),
                   obscureText: true,
                   title: 'Password',
+                  controller: passwordController,
                 ),
               ],
             ),
@@ -60,8 +71,16 @@ class LoginScreen extends StatelessWidget {
             Container(
               width: MediaQuery.of(context).size.width,
               child: ElevatedButton(
-                onPressed: () =>
-                    Navigator.of(context).popUntil((route) => route.isFirst),
+                onPressed: () {
+                  GetUserRepository.getTodosRepository(
+                    emailController.text,
+                    passwordController.text,
+                  ).then((value) {
+                    if (value.message == "Username record exist") {
+                      Navigator.of(context).popUntil((route) => route.isFirst);
+                    }
+                  });
+                },
                 style: ElevatedButton.styleFrom(
                   padding: const EdgeInsets.all(10),
                   shape: RoundedRectangleBorder(

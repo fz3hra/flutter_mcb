@@ -1,12 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mcb_app/Config/routes.dart';
+import 'package:flutter_mcb_app/repositories/create_user_repository.dart';
 import 'package:flutter_mcb_app/utils/image_constants.dart';
 import 'package:flutter_mcb_app/widgets/widget_exports.dart';
 import 'package:gap/gap.dart';
 
-class RegistrationScreen extends StatelessWidget {
+class RegistrationScreen extends StatefulWidget {
   const RegistrationScreen({super.key});
 
+  @override
+  State<RegistrationScreen> createState() => _RegistrationScreenState();
+}
+
+class _RegistrationScreenState extends State<RegistrationScreen> {
+  TextEditingController phoneController = TextEditingController();
+  TextEditingController emailController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -41,6 +50,7 @@ class RegistrationScreen extends StatelessWidget {
                   icon: const Icon(Icons.phone),
                   obscureText: false,
                   title: 'Phone Number',
+                  controller: phoneController,
                 ),
                 const Gap(16),
                 AuthTextFieldWidget(
@@ -49,6 +59,7 @@ class RegistrationScreen extends StatelessWidget {
                   icon: const Icon(Icons.email),
                   obscureText: false,
                   title: 'Email Address',
+                  controller: emailController,
                 ),
                 const Gap(16),
                 AuthTextFieldWidget(
@@ -60,6 +71,7 @@ class RegistrationScreen extends StatelessWidget {
                   suffixIcon: const Icon(Icons.remove_red_eye_outlined),
                   obscureText: true,
                   title: 'Password',
+                  controller: passwordController,
                 ),
               ],
             ),
@@ -70,10 +82,20 @@ class RegistrationScreen extends StatelessWidget {
               child: ElevatedButton(
                 // onPressed: () =>
                 //     Navigator.of(context).popUntil((route) => route.isFirst),
-                onPressed: () => Navigator.pushNamed(
-                  context,
-                  Routes.kyc1Screen,
-                ),
+                onPressed: () {
+                  CreateUserRepository.createUser(
+                    emailController.text,
+                    passwordController.text,
+                    phoneController.text,
+                  ).then((value) {
+                    if (value.message == "Username created Successfully") {
+                      Navigator.pushNamed(
+                        context,
+                        Routes.kyc1Screen,
+                      );
+                    }
+                  });
+                },
                 style: ElevatedButton.styleFrom(
                   padding: const EdgeInsets.all(10),
                   shape: RoundedRectangleBorder(

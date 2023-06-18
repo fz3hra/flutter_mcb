@@ -7,6 +7,7 @@ class AuthTextFieldWidget extends StatelessWidget {
   Widget? suffixIcon;
   Widget icon;
   bool obscureText;
+  TextEditingController controller;
 
   AuthTextFieldWidget({
     required this.title,
@@ -16,10 +17,13 @@ class AuthTextFieldWidget extends StatelessWidget {
     this.suffixIcon,
     required this.icon,
     required this.obscureText,
+    required this.controller,
   });
 
   @override
   Widget build(BuildContext context) {
+    print("info ${controller.text}");
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -45,6 +49,7 @@ class AuthTextFieldWidget extends StatelessWidget {
               const Gap(16),
               Expanded(
                 child: TextFormField(
+                  controller: controller,
                   obscureText: obscureText,
                   decoration: InputDecoration(
                     suffixIcon: suffixIcon,

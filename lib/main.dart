@@ -14,6 +14,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
@@ -37,6 +38,11 @@ class MyApp extends StatelessWidget {
         Routes.serviceguideScreen: (context) => const ServiceGuideScreen(),
         Routes.userServiceInformationScreen: (context) =>
             const UserServiceInformation(),
+        Routes.planScreen: (context) => const PlanScreen(),
+        Routes.userInformationPlanScreen: (context) =>
+            const UserPlanInformationScreen(),
+        Routes.planDetailedInformationScreen: (context) =>
+            const PlanDetailedInformationScreen(),
       },
     );
   }

@@ -13,7 +13,7 @@ class _TabNavigationState extends State<TabNavigation> {
   int currentIndex = 0;
   List<Widget> widgets = [
     const HomeScreen(),
-    const ServiceScreen(),
+    const PlanScreen(),
     const ProfileScreen(),
   ];
   @override

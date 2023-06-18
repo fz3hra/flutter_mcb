@@ -1,15 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_mcb_app/repositories/create_user_repository.dart';
+import 'package:flutter_mcb_app/utils/api_constants.dart';
+import 'package:flutter_mcb_app/utils/api_constants.dart';
 import 'package:flutter_mcb_app/widgets/widget_exports.dart';
 import 'package:gap/gap.dart';
 
-class UserServiceInformation extends StatefulWidget {
-  const UserServiceInformation({super.key});
+class UserPlanInformationScreen extends StatefulWidget {
+  const UserPlanInformationScreen({super.key});
 
   @override
-  State<UserServiceInformation> createState() => _UserServiceInformationState();
+  State<UserPlanInformationScreen> createState() =>
+      _UserPlanInformationScreenState();
 }
 
-class _UserServiceInformationState extends State<UserServiceInformation> {
+class _UserPlanInformationScreenState extends State<UserPlanInformationScreen> {
   TextEditingController controller = TextEditingController();
 
   @override
@@ -26,7 +30,7 @@ class _UserServiceInformationState extends State<UserServiceInformation> {
           ),
         ),
         title: const Text(
-          "Saving Target",
+          "User Plan Information",
           style: TextStyle(
             color: Colors.black,
           ),
@@ -42,32 +46,20 @@ class _UserServiceInformationState extends State<UserServiceInformation> {
             Column(
               children: [
                 AuthTextFieldWidget(
-                  labelText: 'Please enter your service name',
+                  labelText: 'Please enter your plan name',
                   hintText: 'Plan name',
                   icon: const Icon(Icons.email),
                   obscureText: false,
-                  title: 'Please enter your service name',
+                  title: 'Please enter your plan name',
                   controller: controller,
                 ),
                 const Gap(16),
                 AuthTextFieldWidget(
-                  labelText:
-                      "What's your overall target amount for this service",
-                  hintText: 'Min Rs 0 - Max Rs 200 000',
+                  labelText: "How much interest would you like to add?",
+                  hintText: '15%',
                   icon: const Icon(Icons.email),
                   obscureText: false,
-                  title: "What's your overall target amount for this service",
-                  controller: controller,
-                ),
-                const Gap(16),
-                AuthTextFieldWidget(
-                  labelText:
-                      "What duration would you like to have on this service?",
-                  hintText: '6 months',
-                  icon: const Icon(Icons.email),
-                  obscureText: false,
-                  title:
-                      "What duration would you like to have on this service?",
+                  title: "How much interest would you like to add?",
                   controller: controller,
                 ),
               ],
@@ -76,8 +68,9 @@ class _UserServiceInformationState extends State<UserServiceInformation> {
             Container(
               width: MediaQuery.of(context).size.width,
               child: ElevatedButton(
-                onPressed: () =>
-                    Navigator.of(context).popUntil((route) => route.isFirst),
+                onPressed: () {
+                  Navigator.of(context).popUntil((route) => route.isFirst);
+                },
                 style: ElevatedButton.styleFrom(
                   padding: const EdgeInsets.all(10),
                   shape: RoundedRectangleBorder(

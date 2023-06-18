@@ -38,7 +38,7 @@ class TransactionHistoryScreen extends StatelessWidget {
             return Container(
               margin: const EdgeInsets.only(bottom: 8.0),
               padding: const EdgeInsets.all(16.0),
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 color: Colors.white,
                 boxShadow: [
                   BoxShadow(

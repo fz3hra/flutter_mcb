@@ -12,3 +12,7 @@ export 'auth_widgets/auth_textfield_widget.dart';
 export 'kyc_widgets/document_widget.dart';
 
 export 'service_widgets/service_guide_widget.dart';
+
+export 'plan_widgets/user_plan_information_widget.dart';
+
+export 'profile_widgets/profile_information_widget.dart';

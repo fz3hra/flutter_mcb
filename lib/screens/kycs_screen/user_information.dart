@@ -16,6 +16,8 @@ class _UserInformationScreenState extends State<UserInformationScreen> {
   bool selected = false;
   int index = -1;
   DateTime date = DateTime.now();
+  TextEditingController controller = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -52,6 +54,7 @@ class _UserInformationScreenState extends State<UserInformationScreen> {
                     icon: const Icon(Icons.email),
                     obscureText: false,
                     title: 'First Name',
+                    controller: controller,
                   ),
                   const Gap(16),
                   AuthTextFieldWidget(
@@ -60,6 +63,7 @@ class _UserInformationScreenState extends State<UserInformationScreen> {
                     icon: const Icon(Icons.email),
                     obscureText: false,
                     title: 'Last Name',
+                    controller: controller,
                   ),
                   const Gap(16),
                 ],
@@ -142,6 +146,7 @@ class _UserInformationScreenState extends State<UserInformationScreen> {
                                 icon: const Icon(Icons.email),
                                 obscureText: false,
                                 title: 'Identity Id',
+                                controller: controller,
                               ),
                               Gap(24),
                             ],
@@ -186,6 +191,7 @@ class _UserInformationScreenState extends State<UserInformationScreen> {
                                 icon: const Icon(Icons.email),
                                 obscureText: false,
                                 title: 'Passport Id',
+                                controller: controller,
                               ),
                             ],
                           )

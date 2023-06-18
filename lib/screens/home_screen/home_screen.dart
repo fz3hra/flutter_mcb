@@ -81,7 +81,7 @@ class HomeScreen extends StatelessWidget {
                       ),
                       child: ServiceWidget(
                         icon: Icons.shop,
-                        serviceName: 'Service Name',
+                        serviceName: 'Savings',
                       ),
                     ),
                     Gap(16),
@@ -107,10 +107,16 @@ class HomeScreen extends StatelessWidget {
                 scrollDirection: Axis.horizontal,
                 child: Row(
                   children: [
-                    PlanWidget(
-                      planName: 'Plan 1',
-                      planImage: ImageConstants.level1image,
-                      interest: '20',
+                    GestureDetector(
+                      onTap: () => Navigator.pushNamed(
+                        context,
+                        Routes.planDetailedInformationScreen,
+                      ),
+                      child: PlanWidget(
+                        planName: 'Plan 1',
+                        planImage: ImageConstants.level1image,
+                        interest: '20',
+                      ),
                     ),
                     Gap(8),
                     PlanWidget(
