@@ -2,9 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_mcb_app/Config/routes.dart';
 import 'package:flutter_mcb_app/screens/screen_exports.dart';
 import 'package:flutter_mcb_app/screens/tab_navigation.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-void main() {
+void main() async {
   runApp(const MyApp());
+  final SharedPreferences prefs = await SharedPreferences.getInstance();
+  await prefs.remove('token');
 }
 
 class MyApp extends StatelessWidget {

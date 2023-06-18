@@ -82,6 +82,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               child: ElevatedButton(
                 // onPressed: () =>
                 //     Navigator.of(context).popUntil((route) => route.isFirst),
+                // !CREATE USER ACCOUNT
                 onPressed: () {
                   CreateUserRepository.createUser(
                     emailController.text,

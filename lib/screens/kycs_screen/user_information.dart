@@ -2,8 +2,10 @@ import 'package:dateofbirth/dateofbirth.dart';
 import 'package:dob_input_field/dob_input_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mcb_app/Config/routes.dart';
+import 'package:flutter_mcb_app/repositories/create_kyc1_repository.dart';
 import 'package:flutter_mcb_app/widgets/widget_exports.dart';
 import 'package:gap/gap.dart';
+import 'package:intl/intl.dart';
 
 class UserInformationScreen extends StatefulWidget {
   const UserInformationScreen({super.key});
@@ -16,7 +18,14 @@ class _UserInformationScreenState extends State<UserInformationScreen> {
   bool selected = false;
   int index = -1;
   DateTime date = DateTime.now();
-  TextEditingController controller = TextEditingController();
+  TextEditingController firstNameController = TextEditingController();
+  TextEditingController lastNameController = TextEditingController();
+
+  TextEditingController dobController = TextEditingController();
+
+  TextEditingController idcontroller = TextEditingController();
+  TextEditingController passportController = TextEditingController();
+  var dob;
 
   @override
   Widget build(BuildContext context) {
@@ -54,7 +63,7 @@ class _UserInformationScreenState extends State<UserInformationScreen> {
                     icon: const Icon(Icons.email),
                     obscureText: false,
                     title: 'First Name',
-                    controller: controller,
+                    controller: firstNameController,
                   ),
                   const Gap(16),
                   AuthTextFieldWidget(
@@ -63,7 +72,7 @@ class _UserInformationScreenState extends State<UserInformationScreen> {
                     icon: const Icon(Icons.email),
                     obscureText: false,
                     title: 'Last Name',
-                    controller: controller,
+                    controller: lastNameController,
                   ),
                   const Gap(16),
                 ],
@@ -94,6 +103,11 @@ class _UserInformationScreenState extends State<UserInformationScreen> {
                       border: Border.all(color: Colors.grey),
                     ),
                     child: DOBInputField(
+                      onDateSubmitted: (val) {
+                        print("val $val");
+                        dob = val;
+                        setState(() {});
+                      },
                       firstDate: DateTime(1900),
                       lastDate: DateTime.now(),
                       showLabel: true,
@@ -146,7 +160,7 @@ class _UserInformationScreenState extends State<UserInformationScreen> {
                                 icon: const Icon(Icons.email),
                                 obscureText: false,
                                 title: 'Identity Id',
-                                controller: controller,
+                                controller: idcontroller,
                               ),
                               Gap(24),
                             ],
@@ -191,7 +205,7 @@ class _UserInformationScreenState extends State<UserInformationScreen> {
                                 icon: const Icon(Icons.email),
                                 obscureText: false,
                                 title: 'Passport Id',
-                                controller: controller,
+                                controller: passportController,
                               ),
                             ],
                           )
@@ -210,14 +224,52 @@ class _UserInformationScreenState extends State<UserInformationScreen> {
                   ),
                 ],
               ),
-              // !!!!!!!!!!!
               // const Spacer(),
               const Gap(80),
               Container(
                 width: MediaQuery.of(context).size.width,
                 child: ElevatedButton(
-                  onPressed: () =>
-                      Navigator.of(context).popUntil((route) => route.isFirst),
+                  onPressed: () {
+                    // final inputDateTimeString = dob;
+
+                    // final inputFormat = DateFormat("yyyy-MM-dd HH:mm:ss.SSS");
+                    // final inputDateTime =
+                    //     inputFormat.parse(inputDateTimeString);
+
+                    // final outputFormat =
+                    //     DateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'");
+                    // final outputDateTimeString =
+                    //     outputFormat.format(inputDateTime);
+
+                    // print(outputDateTimeString);
+                    (selected == true && index == 1)
+                        ? CreateKyc1Repository.createUser(
+                            "mr",
+                            firstNameController.text,
+                            lastNameController.text,
+                            idcontroller.text,
+                            "2023-06-18T02:27:39.130Z",
+                            "M",
+                          ).then((value) {
+                            if (value.success == true) {
+                              print("id");
+                              Navigator.of(context)
+                                  .popUntil((route) => route.isFirst);
+                            }
+                          })
+                        : CreateKyc1Repository.createUser(
+                            "mr",
+                            firstNameController.text,
+                            lastNameController.text,
+                            passportController.text,
+                            "2023-06-18T02:27:39.130Z",
+                            "M",
+                          ).then((value) {
+                            print("passport");
+                            Navigator.of(context)
+                                .popUntil((route) => route.isFirst);
+                          });
+                  },
                   style: ElevatedButton.styleFrom(
                     padding: const EdgeInsets.all(10),
                     shape: RoundedRectangleBorder(
@@ -228,7 +280,7 @@ class _UserInformationScreenState extends State<UserInformationScreen> {
                   child: Text("Complete Process"),
                 ),
               ),
-              // const Gap(40),
+              const Gap(40),
             ],
           ),
         ),

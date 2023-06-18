@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter_mcb_app/models/get_user_model.dart';
 import 'package:flutter_mcb_app/utils/api_constants.dart';
 import 'package:http/http.dart' as http;
+import 'package:shared_preferences/shared_preferences.dart';
 
 class GetUserRepository {
   static Future<GetUser> getTodosRepository(
@@ -23,6 +24,12 @@ class GetUserRepository {
         ),
       );
       if (response.statusCode == 200) {
+        print("response ${response.body}");
+        Map<String, dynamic> jsonResponse = json.decode(response.body);
+        String token = jsonResponse['data']['token'];
+        print("token $token");
+        final SharedPreferences prefs = await SharedPreferences.getInstance();
+        await prefs.setString('token', token);
         return GetUser.fromRawJson(response.body);
       } else {
         throw Exception("Unable to get user");

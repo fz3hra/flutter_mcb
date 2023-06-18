@@ -27,7 +27,6 @@ class ProfileInformationWidget extends StatelessWidget {
               ),
             ),
           ),
-          Gap(24),
           Text(
             userInfo,
             style: TextStyle(
