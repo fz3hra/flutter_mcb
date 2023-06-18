@@ -49,7 +49,7 @@ class TransactionHistoryScreen extends StatelessWidget {
               ),
               child: TransactionDetailsWidget(
                 referenceId: transactions.referenceId,
-                personName: transactions.personName,
+                // personName: transactions.personName,
                 transactionType: transactions.transactionType,
                 transactionName: transactions.transactionName,
                 amount: transactions.amount,

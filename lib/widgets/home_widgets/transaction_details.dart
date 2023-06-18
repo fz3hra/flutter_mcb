@@ -6,12 +6,12 @@ class TransactionDetailsWidget extends StatelessWidget {
       amount,
       date,
       referenceId,
-      personName,
+      // personName,
       transactionType;
   TransactionDetailsWidget({
     super.key,
     required this.referenceId,
-    required this.personName,
+    // required this.personName,
     required this.transactionType,
     required this.transactionName,
     required this.amount,
@@ -35,18 +35,26 @@ class TransactionDetailsWidget extends StatelessWidget {
                   fontWeight: FontWeight.w400,
                 ),
               ),
+              // Gap(4),
+              // Text(
+              //   personName,
+              //   style: TextStyle(
+              //     color: Colors.black,
+              //     fontSize: 16,
+              //     fontWeight: FontWeight.w400,
+              //   ),
+              // ),
               Gap(4),
               Text(
-                personName,
+                "ref: ${referenceId}",
                 style: TextStyle(
                   color: Colors.black,
-                  fontSize: 16,
-                  fontWeight: FontWeight.w400,
+                  fontSize: 14,
                 ),
               ),
               Gap(4),
               Text(
-                "ref: ${referenceId}",
+                date,
                 style: TextStyle(
                   color: Colors.black,
                   fontSize: 14,
@@ -57,7 +65,7 @@ class TransactionDetailsWidget extends StatelessWidget {
           Column(
             children: [
               Text(
-                amount,
+                "Rs ${amount}",
                 style: TextStyle(
                   color: Colors.black,
                   fontSize: 16,

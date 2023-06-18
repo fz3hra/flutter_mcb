@@ -17,7 +17,7 @@ class TransactionModel {
   static List<TransactionModel> transactionModelLists = [
     TransactionModel(
       transactionName: 'Juice Account Transfer',
-      amount: '20',
+      amount: '20.00',
       date: '6th June 2023',
       referenceId: '1',
       personName: 'Mr John Doe',
@@ -25,7 +25,7 @@ class TransactionModel {
     ),
     TransactionModel(
       transactionName: 'Juice Transfer',
-      amount: '10',
+      amount: '10.00',
       date: '01 jaunary 2021',
       referenceId: '2',
       personName: 'Mr McWell',
@@ -33,7 +33,7 @@ class TransactionModel {
     ),
     TransactionModel(
       transactionName: 'JuicePro Transfer',
-      amount: '10',
+      amount: '10.00',
       date: '01 jaunary 2021',
       referenceId: '3',
       personName: 'Mr Chris Lambert',

@@ -28,7 +28,7 @@ class TransactionWidget extends StatelessWidget {
           TransactionDetailsWidget(
             amount: amount,
             date: date,
-            personName: personName,
+            // personName: personName,
             referenceId: referenceId,
             transactionName: transactionName,
             transactionType: transactionType,

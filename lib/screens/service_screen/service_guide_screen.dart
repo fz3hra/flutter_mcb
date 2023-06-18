@@ -22,7 +22,7 @@ class ServiceGuideScreen extends StatelessWidget {
           ),
         ),
         title: const Text(
-          "Service Name 1",
+          "Accomodation",
           style: TextStyle(
             color: Colors.black,
           ),

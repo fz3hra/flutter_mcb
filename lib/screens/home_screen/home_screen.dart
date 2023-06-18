@@ -81,13 +81,13 @@ class HomeScreen extends StatelessWidget {
                       ),
                       child: ServiceWidget(
                         icon: Icons.shop,
-                        serviceName: 'Savings',
+                        serviceName: 'Accomodation',
                       ),
                     ),
                     Gap(16),
                     ServiceWidget(
                       icon: Icons.shop,
-                      serviceName: 'Service Name',
+                      serviceName: 'Travel',
                     ),
                   ],
                 ),

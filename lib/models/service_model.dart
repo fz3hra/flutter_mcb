@@ -7,15 +7,15 @@ class ServiceModel {
   static List<ServiceModel> serviceLists = [
     ServiceModel(
       serviceDescription:
-          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Our automated debit function empowers you to accelerate your progress toward achieving your desired objectives.",
     ),
     ServiceModel(
       serviceDescription:
-          "1111Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Your funds enjoy 256-bit HTTPS SSL protection while all bank transactins and deposits are insured by NDIC.",
     ),
     ServiceModel(
       serviceDescription:
-          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Achieve an impressive annual interest rate up of up to 12 percent on your saving goal.",
     ),
   ];
 }
