@@ -9,6 +9,13 @@ class ConfirmationScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var firstValue, secondValue;
+    final args =
+        ModalRoute.of(context)!.settings.arguments as Map<String, dynamic>;
+    if (args != null) {
+      firstValue = args["firstValue"];
+      secondValue = args["secondValue"];
+    }
     return Scaffold(
       body: Container(
         margin: const EdgeInsets.symmetric(
@@ -26,9 +33,9 @@ class ConfirmationScreen extends StatelessWidget {
             ),
             Column(
               children: [
-                const Text(
-                  "Rs 200 000",
-                  style: TextStyle(
+                Text(
+                  "Rs ${secondValue}",
+                  style: const TextStyle(
                     color: Colors.black,
                     fontSize: 24,
                     fontWeight: FontWeight.bold,
@@ -44,7 +51,7 @@ class ConfirmationScreen extends StatelessWidget {
                 ),
                 const Gap(8),
                 RichText(
-                  text: const TextSpan(
+                  text: TextSpan(
                     text: 'Transaction Number',
                     style: TextStyle(
                       color: Colors.grey,
@@ -52,7 +59,7 @@ class ConfirmationScreen extends StatelessWidget {
                     ),
                     children: [
                       TextSpan(
-                        text: ' #123',
+                        text: ' $firstValue',
                         style: TextStyle(
                           color: Colors.black,
                           fontSize: 14,
@@ -99,8 +106,9 @@ class ConfirmationScreen extends StatelessWidget {
                 ),
                 Gap(16),
                 ElevatedButton(
-                  onPressed: () =>
-                      Navigator.of(context).popUntil((route) => route.isFirst),
+                  onPressed: () {
+                    Navigator.of(context).popUntil((route) => route.isFirst);
+                  },
                   style: ElevatedButton.styleFrom(
                     padding: const EdgeInsets.all(10),
                     shape: RoundedRectangleBorder(

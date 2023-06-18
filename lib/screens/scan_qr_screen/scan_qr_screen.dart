@@ -88,9 +88,22 @@ class _ScanQrScreenState extends State<ScanQrScreen> {
                   final decrypted = encrypter.decrypt64(encryptedText, iv: iv);
 
                   print("decrypted $decrypted");
+
+                  List<String> values = decrypted.split('|');
+
+                  String firstValue =
+                      values[0]; // ff484738-f542-4519-9ca8-ae77a32b1198
+                  String secondValue = values[1]; // 2000
+
+                  print('First value: $firstValue');
+                  print('Second value: $secondValue');
                   Navigator.pushNamed(
                     context,
                     Routes.confirmationScreen,
+                    arguments: {
+                      "firstValue": firstValue,
+                      "secondValue": secondValue,
+                    },
                   );
                 },
                 // () {
