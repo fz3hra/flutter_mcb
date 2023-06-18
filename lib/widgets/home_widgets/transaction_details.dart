@@ -64,14 +64,23 @@ class TransactionDetailsWidget extends StatelessWidget {
           ),
           Column(
             children: [
-              Text(
-                "Rs ${amount}",
-                style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 16,
-                  fontWeight: FontWeight.bold,
-                ),
-              )
+              transactionName == "JuicePro Transfer"
+                  ? Text(
+                      "+ Rs ${amount}",
+                      style: TextStyle(
+                        color: Colors.green,
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    )
+                  : Text(
+                      "- Rs ${amount}",
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    )
             ],
           ),
         ],

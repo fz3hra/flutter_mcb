@@ -10,7 +10,10 @@ class UserServiceInformation extends StatefulWidget {
 }
 
 class _UserServiceInformationState extends State<UserServiceInformation> {
-  TextEditingController controller = TextEditingController();
+  TextEditingController serviceNameController = TextEditingController();
+  TextEditingController amountController = TextEditingController();
+
+  TextEditingController durationController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -47,7 +50,7 @@ class _UserServiceInformationState extends State<UserServiceInformation> {
                   icon: const Icon(Icons.email),
                   obscureText: false,
                   title: 'Please enter your service name',
-                  controller: controller,
+                  controller: serviceNameController,
                 ),
                 const Gap(16),
                 AuthTextFieldWidget(
@@ -57,7 +60,7 @@ class _UserServiceInformationState extends State<UserServiceInformation> {
                   icon: const Icon(Icons.email),
                   obscureText: false,
                   title: "What's your overall target amount for this service",
-                  controller: controller,
+                  controller: amountController,
                 ),
                 const Gap(16),
                 AuthTextFieldWidget(
@@ -68,7 +71,7 @@ class _UserServiceInformationState extends State<UserServiceInformation> {
                   obscureText: false,
                   title:
                       "What duration would you like to have on this service?",
-                  controller: controller,
+                  controller: durationController,
                 ),
               ],
             ),

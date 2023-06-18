@@ -14,7 +14,8 @@ class UserPlanInformationScreen extends StatefulWidget {
 }
 
 class _UserPlanInformationScreenState extends State<UserPlanInformationScreen> {
-  TextEditingController controller = TextEditingController();
+  TextEditingController planController = TextEditingController();
+  TextEditingController interestController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -51,7 +52,7 @@ class _UserPlanInformationScreenState extends State<UserPlanInformationScreen> {
                   icon: const Icon(Icons.email),
                   obscureText: false,
                   title: 'Please enter your plan name',
-                  controller: controller,
+                  controller: planController,
                 ),
                 const Gap(16),
                 AuthTextFieldWidget(
@@ -60,7 +61,7 @@ class _UserPlanInformationScreenState extends State<UserPlanInformationScreen> {
                   icon: const Icon(Icons.email),
                   obscureText: false,
                   title: "How much interest would you like to add?",
-                  controller: controller,
+                  controller: interestController,
                 ),
               ],
             ),
